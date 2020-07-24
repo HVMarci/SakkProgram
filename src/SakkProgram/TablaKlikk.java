@@ -50,6 +50,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 			if(mehet) {
 //				System.out.println(Main.lepoBabu);
 //				System.out.println(rect);
+
 				if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY())) {
 					Main.lepoBabu.setX(rect.getX());
 					Main.lepoBabu.setY(rect.getY());
