@@ -35,6 +35,8 @@ public class Main extends Application {
 	static Map pieces;
 	static Babu[] feherTisztArray;
 	static Babu[] feherGyalogArray;
+	static Babu[] feketeTisztArray;
+	static Babu[] feketeGyalogArray;
 	static Babu lepoBabu;
 	static Text myLog;
 	
@@ -73,6 +75,9 @@ public class Main extends Application {
 		pieces = ChessPieceDeclarations.getChessPieces();
 		Babu[] feherTisztek = (Babu[]) pieces.get("feherTisztek");
 		Babu[] feherGyalogok = (Babu[]) pieces.get("feherGyalogok");
+		Babu[] feketeTisztek = (Babu[]) pieces.get("feketeTisztek");
+		Babu[] feketeGyalogok = (Babu[]) pieces.get("feketeGyalogok");
+
 		//System.out.println(feherTisztek.length);
 		
 		feherTisztArray = new Babu[feherTisztek.length];
@@ -98,6 +103,30 @@ public class Main extends Application {
 			feherGyalogArray[i].setFitHeight(40);
 			feherGyalogArray[i].setFitWidth(40);
 		}
+		
+		feketeTisztArray = new Babu[feketeTisztek.length];
+		for (int i = 0; i < feketeTisztArray.length; i++) {
+			feketeTisztArray[i] = feketeTisztek[i];
+			//System.out.println(imageViewArray[i]);
+			//babuArray[i].setImage(feherTisztek[i]);
+			feketeTisztArray[i].setX(40 * i);
+			feketeTisztArray[i].setY(0*40);
+			feketeTisztArray[i].setOnMouseClicked(new BabuKlikk());
+			feketeTisztArray[i].setFitHeight(40);
+			feketeTisztArray[i].setFitWidth(40);
+		}
+		
+		feketeGyalogArray = new Babu[feketeGyalogok.length];
+		for (int i = 0; i < feketeGyalogArray.length; i++) {
+			feketeGyalogArray[i] = feketeGyalogok[i];
+			//System.out.println(feketeGyalogArray[i].getImage());
+			//babuArray[i].setImage(feherTisztek[i]);
+			feketeGyalogArray[i].setX(40 * i);
+			feketeGyalogArray[i].setY(1*40);
+			feketeGyalogArray[i].setOnMouseClicked(new BabuKlikk());
+			feketeGyalogArray[i].setFitHeight(40);
+			feketeGyalogArray[i].setFitWidth(40);
+		}
 
 		// Ha nincs kikommentelve és rákattintunk, akkor hibára fut, mert nem tudja a
 		// Rectangle-t ImageView-vá castolni
@@ -108,6 +137,8 @@ public class Main extends Application {
 		root.getChildren().addAll(rect);
 		root.getChildren().addAll(feherTisztArray);
 		root.getChildren().addAll(feherGyalogArray);
+		root.getChildren().addAll(feketeTisztArray);
+		root.getChildren().addAll(feketeGyalogArray);
 		root.getChildren().add(myLog);
 		Scene scene = new Scene(root, 400, 400);
 

@@ -94,13 +94,20 @@ public class ChessPieceDeclarations {
 				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\WhiteBishop.png"));
 		Image blackKingImg = new Image(new FileInputStream(
 				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackKing.png"));
+		Image blackRookImg = new Image(new FileInputStream(
+				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackRook.png"));
+		Image blackBishopImg = new Image(new FileInputStream(
+				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackBishop.png"));
+		Image blackHorseImg = new Image(new FileInputStream(
+				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackHorse.png"));
 		Image blackQueenImg = new Image(new FileInputStream(
 				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackQueen.png"));
+		Image blackPawnImg = new Image(new FileInputStream(
+				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackPawn.png"));
 
 		Kiraly whiteKing = new Kiraly();
 		whiteKing.setImage(whiteKingImg);
 		whiteKing.szin = true;
-		whiteKing.tipus = "kiraly";
 
 		Vezer whiteQueen = new Vezer();
 		whiteQueen.setImage(whiteQueenImg);
@@ -117,22 +124,18 @@ public class ChessPieceDeclarations {
 		Huszar whiteHorse1 = new Huszar();
 		whiteHorse1.setImage(whiteHorseImg);
 		whiteHorse1.szin = true;
-		whiteHorse1.tipus = "huszar";
 
 		Huszar whiteHorse2 = new Huszar();
 		whiteHorse2.setImage(whiteHorseImg);
 		whiteHorse2.szin = true;
-		whiteHorse2.tipus = "huszar";
 
 		Futo whiteBishop1 = new Futo();
 		whiteBishop1.setImage(whiteBishopImg);
 		whiteBishop1.szin = true;
-		whiteBishop1.tipus = "futo";
 
 		Futo whiteBishop2 = new Futo();
 		whiteBishop2.setImage(whiteBishopImg);
 		whiteBishop2.szin = true;
-		whiteBishop2.tipus = "futo";
 
 		Babu[] feherTisztek = { whiteRook1, whiteHorse1, whiteBishop1, whiteQueen, whiteKing, whiteBishop2, whiteHorse2,
 				whiteRook2 };
@@ -140,42 +143,34 @@ public class ChessPieceDeclarations {
 		Gyalog whitePawn1 = new Gyalog();
 		whitePawn1.setImage(whitePawnImg);
 		whitePawn1.szin = true;
-		whitePawn1.tipus = "gyalog";
 
 		Gyalog whitePawn2 = new Gyalog();
 		whitePawn2.setImage(whitePawnImg);
 		whitePawn2.szin = true;
-		whitePawn2.tipus = "gyalog";
 
 		Gyalog whitePawn3 = new Gyalog();
 		whitePawn3.setImage(whitePawnImg);
 		whitePawn3.szin = true;
-		whitePawn3.tipus = "gyalog";
 
 		Gyalog whitePawn4 = new Gyalog();
 		whitePawn4.setImage(whitePawnImg);
 		whitePawn4.szin = true;
-		whitePawn4.tipus = "gyalog";
 
 		Gyalog whitePawn5 = new Gyalog();
 		whitePawn5.setImage(whitePawnImg);
 		whitePawn5.szin = true;
-		whitePawn5.tipus = "gyalog";
 
 		Gyalog whitePawn6 = new Gyalog();
 		whitePawn6.setImage(whitePawnImg);
 		whitePawn6.szin = true;
-		whitePawn6.tipus = "gyalog";
 
 		Gyalog whitePawn7 = new Gyalog();
 		whitePawn7.setImage(whitePawnImg);
 		whitePawn7.szin = true;
-		whitePawn7.tipus = "gyalog";
 
 		Gyalog whitePawn8 = new Gyalog();
 		whitePawn8.setImage(whitePawnImg);
 		whitePawn8.szin = true;
-		whitePawn8.tipus = "gyalog";
 
 		Babu[] feherGyalogok = { whitePawn1, whitePawn2, whitePawn3, whitePawn4, whitePawn5, whitePawn6, whitePawn7,
 				whitePawn8 };
@@ -183,17 +178,79 @@ public class ChessPieceDeclarations {
 		Kiraly blackKing = new Kiraly();
 		blackKing.setImage(blackKingImg);
 		blackKing.szin = false;
-		blackKing.tipus = "kiraly";
 
 		Vezer blackQueen = new Vezer();
 		blackQueen.setImage(blackQueenImg);
 		blackQueen.szin = false;
-		blackQueen.tipus = "vezer";
-		
-		Map<String, Babu[]> pieces = new HashMap<String,Babu[]>();
+
+		Bastya blackRook1 = new Bastya();
+		blackRook1.setImage(blackRookImg);
+		blackRook1.szin = false;
+
+		Bastya blackRook2 = new Bastya();
+		blackRook2.setImage(blackRookImg);
+		blackRook2.szin = false;
+
+		Huszar blackHorse1 = new Huszar();
+		blackHorse1.setImage(blackHorseImg);
+		blackHorse1.szin = false;
+
+		Huszar blackHorse2 = new Huszar();
+		blackHorse2.setImage(blackHorseImg);
+		blackHorse2.szin = false;
+
+		Futo blackBishop1 = new Futo();
+		blackBishop1.setImage(blackBishopImg);
+		blackBishop1.szin = false;
+
+		Futo blackBishop2 = new Futo();
+		blackBishop2.setImage(blackBishopImg);
+		blackBishop2.szin = false;
+
+		Babu[] feketeTisztek = { blackRook1, blackHorse1, blackBishop1, blackQueen, blackKing, blackBishop2,
+				blackHorse2, blackRook2 };
+
+		Gyalog blackPawn1 = new Gyalog();
+		blackPawn1.setImage(blackPawnImg);
+		blackPawn1.szin = false;
+
+		Gyalog blackPawn2 = new Gyalog();
+		blackPawn2.setImage(blackPawnImg);
+		blackPawn2.szin = false;
+
+		Gyalog blackPawn3 = new Gyalog();
+		blackPawn3.setImage(blackPawnImg);
+		blackPawn3.szin = false;
+
+		Gyalog blackPawn4 = new Gyalog();
+		blackPawn4.setImage(blackPawnImg);
+		blackPawn4.szin = false;
+
+		Gyalog blackPawn5 = new Gyalog();
+		blackPawn5.setImage(blackPawnImg);
+		blackPawn5.szin = false;
+
+		Gyalog blackPawn6 = new Gyalog();
+		blackPawn6.setImage(blackPawnImg);
+		blackPawn6.szin = false;
+
+		Gyalog blackPawn7 = new Gyalog();
+		blackPawn7.setImage(blackPawnImg);
+		blackPawn7.szin = false;
+
+		Gyalog blackPawn8 = new Gyalog();
+		blackPawn8.setImage(blackPawnImg);
+		blackPawn8.szin = false;
+
+		Babu[] feketeGyalogok = { blackPawn1, blackPawn2, blackPawn3, blackPawn4, blackPawn5, blackPawn6, blackPawn7,
+				blackPawn8 };
+
+		Map<String, Babu[]> pieces = new HashMap<String, Babu[]>();
 		pieces.put("feherTisztek", feherTisztek);
 		pieces.put("feherGyalogok", feherGyalogok);
-		
+		pieces.put("feketeTisztek", feketeTisztek);
+		pieces.put("feketeGyalogok", feketeGyalogok);
+
 		return pieces;
 	}
 }

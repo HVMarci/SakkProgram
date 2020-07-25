@@ -1,6 +1,11 @@
 package SakkProgram;
 
 public class Futo extends Babu {
+	
+	public Futo() {
+		this.tipus = "futo";
+	}
+	
 	public boolean lepes(double babuX, double babuY, double rectX, double rectY) {
 		if (Math.abs(babuX - rectX) == Math.abs(babuY - rectY)) {
 			return true;

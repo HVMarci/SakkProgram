@@ -14,12 +14,16 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent e) {
 		
 		Rectangle rect = (Rectangle) e.getSource();
-		Babu[] babuk = new Babu[16];
+		Babu[] babuk = new Babu[32];
 		for (int i = 0; i < babuk.length; i++) {
 			if(i < 8) {
 				babuk[i] = Main.feherTisztArray[i];
-			} else {
+			} else if (i < 16) {
 				babuk[i] = Main.feherGyalogArray[i-8];
+			} else if (i < 24) {
+				babuk[i] = Main.feketeTisztArray[i-16];
+			} else {
+				babuk[i] = Main.feketeGyalogArray[i-24];
 			}
 
 		}
@@ -56,32 +60,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 					Main.lepoBabu.setY(rect.getY());
 					Main.lepoBabu = null;
 					Main.myLog.setText("");
-				} /*else if(Main.lepoBabu.tipus == "gyalog" && Gyalog.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY())) {
-					Main.lepoBabu.setX(rect.getX());
-					Main.lepoBabu.setY(rect.getY());
-					Main.lepoBabu = null;
-					Main.myLog.setText("");
-				} else if(Main.lepoBabu.tipus == "bastya" && Bastya.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY())) {
-					Main.lepoBabu.setX(rect.getX());
-					Main.lepoBabu.setY(rect.getY());
-					Main.lepoBabu = null;
-					Main.myLog.setText("");
-				} else if(Main.lepoBabu.tipus == "futo" && Futo.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY())) {
-					Main.lepoBabu.setX(rect.getX());
-					Main.lepoBabu.setY(rect.getY());
-					Main.lepoBabu = null;
-					Main.myLog.setText("");
-				} else if(Main.lepoBabu.tipus == "vezer" && Vezer.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY())) {
-					Main.lepoBabu.setX(rect.getX());
-					Main.lepoBabu.setY(rect.getY());
-					Main.lepoBabu = null;
-					Main.myLog.setText("");
-				} else if(Main.lepoBabu.tipus != "kiraly" && Main.lepoBabu.tipus != "gyalog" && Main.lepoBabu.tipus != "bastya" && Main.lepoBabu.tipus != "futo" && Main.lepoBabu.tipus != "vezer") {
-					Main.lepoBabu.setX(rect.getX());
-					Main.lepoBabu.setY(rect.getY());
-					Main.lepoBabu = null;
-					Main.myLog.setText("");
-				} */else {
+				} else {
 					Main.myLog.setText("Rossz lépés!");
 				}
 			}
