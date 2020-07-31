@@ -80,30 +80,20 @@ import javafx.scene.image.Image;
 
 public class ChessPieceDeclarations {
 	public static Map getChessPieces() throws FileNotFoundException {
-		Image whiteKingImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\WhiteKing.png"));
-		Image whiteQueenImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\WhiteQueen.png"));
-		Image whiteRookImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\WhiteRook.png"));
-		Image whitePawnImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\WhitePawn.png"));
-		Image whiteHorseImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\WhiteHorse.png"));
-		Image whiteBishopImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\WhiteBishop.png"));
-		Image blackKingImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackKing.png"));
-		Image blackRookImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackRook.png"));
-		Image blackBishopImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackBishop.png"));
-		Image blackHorseImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackHorse.png"));
-		Image blackQueenImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackQueen.png"));
-		Image blackPawnImg = new Image(new FileInputStream(
-				"C:\\Users\\user\\sakkprogramhozWorkspace\\SakkProgram\\src\\SakkProgram\\ChessPieces\\BlackPawn.png"));
+		String projRoot = System.getenv("projectRoot");
+		System.out.println(projRoot);
+		Image whiteKingImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\WhiteKing.png"));
+		Image whiteQueenImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\WhiteQueen.png"));
+		Image whiteRookImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\WhiteRook.png"));
+		Image whitePawnImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\WhitePawn.png"));
+		Image whiteHorseImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\WhiteHorse.png"));
+		Image whiteBishopImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\WhiteBishop.png"));
+		Image blackKingImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\BlackKing.png"));
+		Image blackRookImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\BlackRook.png"));
+		Image blackBishopImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\BlackBishop.png"));
+		Image blackHorseImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\BlackHorse.png"));
+		Image blackQueenImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\BlackQueen.png"));
+		Image blackPawnImg = new Image(new FileInputStream(projRoot + "\\ChessPieces\\BlackPawn.png"));
 
 		Kiraly whiteKing = new Kiraly();
 		whiteKing.setImage(whiteKingImg);
