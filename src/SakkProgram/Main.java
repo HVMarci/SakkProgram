@@ -39,6 +39,9 @@ public class Main extends Application {
 	static Babu[] feketeGyalogArray;
 	static Babu lepoBabu;
 	static Text myLog;
+	static Group root;
+	static double leutesX = 0;
+	static double leutesY = 8*40;
 	
 	@Override
 	public void start(Stage stage) throws FileNotFoundException {
@@ -132,7 +135,7 @@ public class Main extends Application {
 		// Rectangle-t ImageView-vá castolni
 		//rect[9].addEventFilter(MouseEvent.MOUSE_CLICKED, MyEventHandler.babuKlikk);
 
-		Group root = new Group();
+		root = new Group();
 
 		root.getChildren().addAll(rect);
 		root.getChildren().addAll(feherTisztArray);
