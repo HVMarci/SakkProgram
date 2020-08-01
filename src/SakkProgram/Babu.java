@@ -9,6 +9,7 @@ public abstract class Babu extends ImageView implements Lepo {
 	public boolean szin;
 	
 	public String tipus;
+	public boolean leutve = false;
 
 //	public abstract boolean lepes(double babuX, double babuY, double rectX, double rectY);
 }

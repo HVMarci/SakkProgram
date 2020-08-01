@@ -14,40 +14,38 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 
 	@Override
 	public void handle(MouseEvent e) {
-		
+
 		Babu babu = (Babu) e.getSource();
 		double x = babu.getX();
 		double y = babu.getY();
-		
-		if (Main.lepoBabu == null || Main.lepoBabu.szin == babu.szin) {
+		if (babu.leutve) {
+			Main.myLog.setText("Ez a bábu le van ütve!");
+		} else if (Main.lepoBabu == null || Main.lepoBabu.szin == babu.szin) {
 			babu.akarLepni = true;
 			Main.lepoBabu = babu;
-		} else if(Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), babu.getX(), babu.getY())) {
+		} else if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), babu.getX(), babu.getY())) {
 			// ütés
 			Main.lepoBabu.setX(x);
 			Main.lepoBabu.setY(y);
 			Main.lepoBabu = null;
-			if(Main.leutesX > 7*40) {
+			if (Main.leutesX > 7 * 40) {
 				Main.leutesX = 0;
 				Main.leutesY += 40;
 			}
 			babu.setX(Main.leutesX);
 			babu.setY(Main.leutesY);
+			babu.leutve = true;
 			Main.leutesX += 40;
+			Main.myLog.setText("");
 		} else {
 			Main.myLog.setText("Rossz lépés!");
 		}
-		/*if(e.getButton() == MouseButton.PRIMARY) {
-			babu.setX(x+40);
-		}
-		
-		if(e.getButton() == MouseButton.SECONDARY) {
-			babu.setY(y+40);
-		}
-		
-		if(e.getButton() == MouseButton.MIDDLE) {
-			babu.setX(x-40);
-			babu.setY(y-40);
-		}*/
+		/*
+		 * if(e.getButton() == MouseButton.PRIMARY) { babu.setX(x+40); }
+		 * 
+		 * if(e.getButton() == MouseButton.SECONDARY) { babu.setY(y+40); }
+		 * 
+		 * if(e.getButton() == MouseButton.MIDDLE) { babu.setX(x-40); babu.setY(y-40); }
+		 */
 	}
 }

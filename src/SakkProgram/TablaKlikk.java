@@ -41,8 +41,28 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 				
 			}
 		} else {
+			
 			boolean mehet = true;
-			for (int i = 0; i < babuk.length; i++) {
+			boolean utes = false;
+			int babukHossza;
+			int babukKezdes;
+			int babukKezdes2;
+			int babukHossza2;
+			Babu utni = null;
+			
+			if (Main.lepoBabu.szin) {
+				babukKezdes = 0;
+				babukHossza = 16;
+				babukKezdes2 = 16;
+				babukHossza2 = 32;
+			} else {
+				babukKezdes = 16;
+				babukHossza = 32;
+				babukKezdes2 = 0;
+				babukHossza2 = 16;
+			}
+			
+			for (int i = babukKezdes; i < babukHossza; i++) {
 //				System.out.println(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY());
 //				System.out.println(babuk[i].getX() + " " + rect.getX());
 //				System.out.println(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY());
@@ -51,6 +71,14 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 					mehet = false;
 				}
 			}
+			
+			for (int i = babukKezdes2; i < babukHossza2; i++) {
+				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY()) {
+					utni = babuk[i];
+					utes = true;
+				}
+			}
+			
 			if(mehet) {
 //				System.out.println(Main.lepoBabu);
 //				System.out.println(rect);
@@ -60,6 +88,15 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 					Main.lepoBabu.setY(rect.getY());
 					Main.lepoBabu = null;
 					Main.myLog.setText("");
+					if(utes) {
+						utni.setX(Main.leutesX);
+						utni.setY(Main.leutesY);
+						Main.leutesX += 40;
+						if(Main.leutesX > 7*40) {
+							Main.leutesX = 0;
+							Main.leutesY += 40;
+						}
+					}
 				} else {
 					Main.myLog.setText("Rossz lépés!");
 				}
