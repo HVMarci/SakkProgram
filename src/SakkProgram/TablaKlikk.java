@@ -83,7 +83,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 //				System.out.println(Main.lepoBabu);
 //				System.out.println(rect);
 
-				if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY())) {
+				if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY(), utes)) {
 					Main.lepoBabu.setX(rect.getX());
 					Main.lepoBabu.setY(rect.getY());
 					Main.lepoBabu = null;

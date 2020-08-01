@@ -23,7 +23,7 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 		} else if (Main.lepoBabu == null || Main.lepoBabu.szin == babu.szin) {
 			babu.akarLepni = true;
 			Main.lepoBabu = babu;
-		} else if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), babu.getX(), babu.getY())) {
+		} else if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), babu.getX(), babu.getY(), true)) {
 			// ütés
 			Main.lepoBabu.setX(x);
 			Main.lepoBabu.setY(y);

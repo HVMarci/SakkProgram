@@ -6,7 +6,7 @@ public class Vezer extends Babu {
 		this.tipus = "vezer";
 	}
 	
-	public boolean lepes(double babuX, double babuY, double rectX, double rectY) {
+	public boolean lepes(double babuX, double babuY, double rectX, double rectY, boolean utes) {
 		if (Math.abs(babuX - rectX) == Math.abs(babuY - rectY) || babuX == rectX || babuY == rectY) {
 			return true;
 		} else {
