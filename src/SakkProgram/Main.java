@@ -42,6 +42,9 @@ public class Main extends Application {
 	static Group root;
 	static double leutesX = 0;
 	static double leutesY = 8*40;
+	static Double enPassantX;
+	static Double enPassantY;
+	static Babu enPassantBabu;
 	
 	@Override
 	public void start(Stage stage) throws FileNotFoundException {

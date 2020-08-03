@@ -8,6 +8,8 @@ public class Vezer extends Babu {
 	
 	public boolean lepes(double babuX, double babuY, double rectX, double rectY, boolean utes) {
 		if (Math.abs(babuX - rectX) == Math.abs(babuY - rectY) || babuX == rectX || babuY == rectY) {
+			Main.enPassantX = null;
+			Main.enPassantY = null;
 			return true;
 		} else {
 			return false;
