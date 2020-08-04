@@ -38,6 +38,8 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 				
 				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY() && babuk[i].szin == Main.lepoSzin) {
 					Main.lepoBabu = babuk[i];
+				} else {
+					Main.myLog.setText("Rossz szín!");
 				}
 				
 			}
