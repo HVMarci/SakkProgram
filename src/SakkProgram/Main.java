@@ -45,6 +45,8 @@ public class Main extends Application {
 	static Double enPassantX;
 	static Double enPassantY;
 	static Babu enPassantBabu;
+	static boolean lepoSzin = true;
+	static MutatoBabu mutatoBabu;
 	
 	@Override
 	public void start(Stage stage) throws FileNotFoundException {
@@ -77,6 +79,12 @@ public class Main extends Application {
 		myLog.setX(10);
 		myLog.setY(360);
 		myLog.setFont(new Font(40));
+		
+		mutatoBabu = new MutatoBabu();
+		mutatoBabu.setX(9*40);
+		mutatoBabu.setY(2*40);
+		mutatoBabu.setFitWidth(40);
+		mutatoBabu.setFitHeight(40);
 		
 		pieces = ChessPieceDeclarations.getChessPieces();
 		Babu[] feherTisztek = (Babu[]) pieces.get("feherTisztek");
@@ -146,6 +154,7 @@ public class Main extends Application {
 		root.getChildren().addAll(feketeTisztArray);
 		root.getChildren().addAll(feketeGyalogArray);
 		root.getChildren().add(myLog);
+		root.getChildren().add(mutatoBabu);
 		Scene scene = new Scene(root, 400, 400);
 
 		//scene.setFill(Color.LAVENDER);

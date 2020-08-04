@@ -1,6 +1,7 @@
 package SakkProgram;
 
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
 
 import javax.swing.SwingUtilities;
 
@@ -18,34 +19,45 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 		Babu babu = (Babu) e.getSource();
 		double x = babu.getX();
 		double y = babu.getY();
-		if (babu.leutve) {
-			Main.myLog.setText("Ez a bábu le van ütve!");
-		} else if (Main.lepoBabu == null || Main.lepoBabu.szin == babu.szin) {
-			babu.akarLepni = true;
-			Main.lepoBabu = babu;
-		} else if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), babu.getX(), babu.getY(), true)) {
-			// ütés
-			Main.lepoBabu.setX(x);
-			Main.lepoBabu.setY(y);
-			Main.lepoBabu = null;
-			if (Main.leutesX > 7 * 40) {
-				Main.leutesX = 0;
-				Main.leutesY += 40;
+		//if (Main.lepoBabu == null || Main.lepoBabu.szin == Main.lepoSzin) {
+			if (babu.leutve) {
+				Main.myLog.setText("Ez a bábu le van ütve!");
+			} else if (Main.lepoBabu == null || Main.lepoBabu.szin == babu.szin) {
+				if (babu.szin == Main.lepoSzin) {
+					babu.akarLepni = true;
+					Main.lepoBabu = babu;
+				} else {
+					Main.myLog.setText("Rossz szín!");
+				}
+			} else if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), babu.getX(), babu.getY(), true)) {
+				// ütés
+				Main.lepoBabu.setX(x);
+				Main.lepoBabu.setY(y);
+				Main.lepoBabu = null;
+				if (Main.leutesX > 7 * 40) {
+					Main.leutesX = 0;
+					Main.leutesY += 40;
+				}
+				babu.setX(Main.leutesX);
+				babu.setY(Main.leutesY);
+				babu.leutve = true;
+				Main.leutesX += 40;
+				Main.myLog.setText("");
+				try {
+					MutatoBabu.valtoztatas(Main.mutatoBabu);
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				}
+			} else {
+				Main.myLog.setText("Rossz lépés!");
 			}
-			babu.setX(Main.leutesX);
-			babu.setY(Main.leutesY);
-			babu.leutve = true;
-			Main.leutesX += 40;
-			Main.myLog.setText("");
-		} else {
-			Main.myLog.setText("Rossz lépés!");
-		}
-		/*
-		 * if(e.getButton() == MouseButton.PRIMARY) { babu.setX(x+40); }
-		 * 
-		 * if(e.getButton() == MouseButton.SECONDARY) { babu.setY(y+40); }
-		 * 
-		 * if(e.getButton() == MouseButton.MIDDLE) { babu.setX(x-40); babu.setY(y-40); }
-		 */
+			/*
+			 * if(e.getButton() == MouseButton.PRIMARY) { babu.setX(x+40); }
+			 * 
+			 * if(e.getButton() == MouseButton.SECONDARY) { babu.setY(y+40); }
+			 * 
+			 * if(e.getButton() == MouseButton.MIDDLE) { babu.setX(x-40); babu.setY(y-40); }
+			 */
+		//}
 	}
 }

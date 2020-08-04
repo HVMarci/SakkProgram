@@ -1,5 +1,6 @@
 package SakkProgram;
 
+import java.io.FileNotFoundException;
 import java.util.concurrent.TimeUnit;
 
 import javafx.event.EventHandler;
@@ -35,7 +36,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 //				System.out.println(babuk[i].getX() + " " + rect.getX());
 //				System.out.println(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY());
 				
-				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY()) {
+				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY() && babuk[i].szin == Main.lepoSzin) {
 					Main.lepoBabu = babuk[i];
 				}
 				
@@ -49,6 +50,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 			int babukKezdes2;
 			int babukHossza2;
 			Babu utni = null;
+			
 			
 			if (Main.lepoBabu.szin) {
 				babukKezdes = 0;
@@ -96,6 +98,11 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 							Main.leutesX = 0;
 							Main.leutesY += 40;
 						}
+					}
+					try {
+						MutatoBabu.valtoztatas(Main.mutatoBabu);
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
 					}
 				} else {
 					Main.myLog.setText("Rossz lépés!");
