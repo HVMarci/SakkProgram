@@ -26,6 +26,7 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 				if (babu.szin == Main.lepoSzin) {
 					babu.akarLepni = true;
 					Main.lepoBabu = babu;
+					Main.lepoBabuJelolo.valtoztatas(babu.getX(), babu.getY());
 				} else {
 					Main.myLog.setText("Rossz szín!");
 				}

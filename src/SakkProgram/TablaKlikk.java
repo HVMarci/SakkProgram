@@ -36,10 +36,13 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 //				System.out.println(babuk[i].getX() + " " + rect.getX());
 //				System.out.println(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY());
 				
-				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY() && babuk[i].szin == Main.lepoSzin) {
-					Main.lepoBabu = babuk[i];
-				} else {
-					Main.myLog.setText("Rossz szín!");
+				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY()) {
+					if (babuk[i].szin == Main.lepoSzin) {
+						Main.lepoBabu = babuk[i];
+						Main.lepoBabuJelolo.valtoztatas(babuk[i].getX(), babuk[i].getY());						
+					} else {
+						Main.myLog.setText("Rossz szín!");
+					}
 				}
 				
 			}
@@ -72,6 +75,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 //				System.out.println(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY());
 				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY()) {
 					Main.lepoBabu = babuk[i];
+					Main.lepoBabuJelolo.valtoztatas(babuk[i].getX(), babuk[i].getY());
 					mehet = false;
 				}
 			}
