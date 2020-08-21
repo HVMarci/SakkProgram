@@ -32,22 +32,26 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 				}
 			} else if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), babu.getX(), babu.getY(), true)) {
 				// ütés
-				Main.lepoBabu.setX(x);
-				Main.lepoBabu.setY(y);
-				Main.lepoBabu = null;
-				if (Main.leutesX > 7 * 40) {
-					Main.leutesX = 0;
-					Main.leutesY += 40;
-				}
-				babu.setX(Main.leutesX);
-				babu.setY(Main.leutesY);
-				babu.leutve = true;
-				Main.leutesX += 40;
-				Main.myLog.setText("");
-				try {
-					MutatoBabu.valtoztatas(Main.mutatoBabu);
-				} catch (FileNotFoundException e1) {
-					e1.printStackTrace();
+				if (babu.tipus == "kiraly") {
+					Main.myLog.setText("Királyt nem ütünk!");
+				} else {
+					Main.lepoBabu.setX(x);
+					Main.lepoBabu.setY(y);
+					Main.lepoBabu = null;
+					if (Main.leutesX > 7 * 40) {
+						Main.leutesX = 0;
+						Main.leutesY += 40;
+					}
+					babu.setX(Main.leutesX);
+					babu.setY(Main.leutesY);
+					babu.leutve = true;
+					Main.leutesX += 40;
+					Main.myLog.setText("");
+					try {
+						MutatoBabu.valtoztatas(Main.mutatoBabu);
+					} catch (FileNotFoundException e1) {
+						e1.printStackTrace();
+					}
 				}
 			} else {
 				Main.myLog.setText("Rossz lépés!");

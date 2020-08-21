@@ -92,23 +92,37 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 //				System.out.println(rect);
 
 				if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY(), utes)) {
-					Main.lepoBabu.setX(rect.getX());
-					Main.lepoBabu.setY(rect.getY());
-					Main.lepoBabu = null;
-					Main.myLog.setText("");
-					if(utes) {
-						utni.setX(Main.leutesX);
-						utni.setY(Main.leutesY);
-						Main.leutesX += 40;
-						if(Main.leutesX > 7*40) {
-							Main.leutesX = 0;
-							Main.leutesY += 40;
+					if (!utes) {
+						Main.lepoBabu.setX(rect.getX());
+						Main.lepoBabu.setY(rect.getY());
+						Main.lepoBabu = null;
+						Main.myLog.setText("");
+						try {
+							MutatoBabu.valtoztatas(Main.mutatoBabu);
+						} catch (FileNotFoundException e1) {
+							e1.printStackTrace();
 						}
-					}
-					try {
-						MutatoBabu.valtoztatas(Main.mutatoBabu);
-					} catch (FileNotFoundException e1) {
-						e1.printStackTrace();
+					} else {
+						if (utni.tipus == "kiraly") {
+							Main.myLog.setText("Királyt nem ütünk!");
+						} else {
+							utni.setX(Main.leutesX);
+							utni.setY(Main.leutesY);
+							Main.leutesX += 40;
+							if(Main.leutesX > 7*40) {
+								Main.leutesX = 0;
+								Main.leutesY += 40;
+							}
+							Main.lepoBabu.setX(rect.getX());
+							Main.lepoBabu.setY(rect.getY());
+							Main.lepoBabu = null;
+							Main.myLog.setText("");
+							try {
+								MutatoBabu.valtoztatas(Main.mutatoBabu);
+							} catch (FileNotFoundException e1) {
+								e1.printStackTrace();
+							}
+						}
 					}
 				} else {
 					Main.myLog.setText("Rossz lépés!");
