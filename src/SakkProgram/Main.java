@@ -31,7 +31,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	
-	static LepoBabuJelolo lepoBabuJelolo = new LepoBabuJelolo();
+	static LepoBabuJelolo lepoBabuJelolo1 = new LepoBabuJelolo(Color.PURPLE);
+	static LepoBabuJelolo lepoBabuJelolo2 = new LepoBabuJelolo(Color.PINK);
 	static Rectangle[] rect;
 	static Map pieces;
 	static Babu[] feherTisztArray;
@@ -73,6 +74,9 @@ public class Main extends Application {
 			}
 			szin = szin ? false : true;
 		}
+		
+		lepoBabuJelolo1.setOnMouseClicked(new TablaKlikk());
+		lepoBabuJelolo2.setOnMouseClicked(new TablaKlikk());
 		
 		myLog = new Text();
 		myLog.setFill(Color.BLACK);
@@ -150,7 +154,8 @@ public class Main extends Application {
 		root = new Group();
 
 		root.getChildren().addAll(rect);
-		root.getChildren().add(lepoBabuJelolo);
+		root.getChildren().add(lepoBabuJelolo1);
+		root.getChildren().add(lepoBabuJelolo2);
 		root.getChildren().addAll(feherTisztArray);
 		root.getChildren().addAll(feherGyalogArray);
 		root.getChildren().addAll(feketeTisztArray);

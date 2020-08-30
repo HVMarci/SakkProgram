@@ -39,7 +39,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY()) {
 					if (babuk[i].szin == Main.lepoSzin) {
 						Main.lepoBabu = babuk[i];
-						Main.lepoBabuJelolo.valtoztatas(babuk[i].getX(), babuk[i].getY());						
+						Main.lepoBabuJelolo1.valtoztatas(babuk[i].getX(), babuk[i].getY());						
 					} else {
 						Main.myLog.setText("Rossz szín!");
 					}
@@ -75,7 +75,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 //				System.out.println(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY());
 				if(babuk[i].getX() == rect.getX() && babuk[i].getY() == rect.getY()) {
 					Main.lepoBabu = babuk[i];
-					Main.lepoBabuJelolo.valtoztatas(babuk[i].getX(), babuk[i].getY());
+					Main.lepoBabuJelolo1.valtoztatas(babuk[i].getX(), babuk[i].getY());
 					mehet = false;
 				}
 			}
@@ -95,6 +95,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 					if (!utes) {
 						Main.lepoBabu.setX(rect.getX());
 						Main.lepoBabu.setY(rect.getY());
+						Main.lepoBabuJelolo2.valtoztatas(rect.getX(), rect.getY());
 						Main.lepoBabu = null;
 						Main.myLog.setText("");
 						try {
@@ -115,6 +116,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 							}
 							Main.lepoBabu.setX(rect.getX());
 							Main.lepoBabu.setY(rect.getY());
+							Main.lepoBabuJelolo2.valtoztatas(rect.getX(), rect.getY());
 							Main.lepoBabu = null;
 							Main.myLog.setText("");
 							try {

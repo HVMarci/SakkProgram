@@ -26,7 +26,7 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 				if (babu.szin == Main.lepoSzin) {
 					babu.akarLepni = true;
 					Main.lepoBabu = babu;
-					Main.lepoBabuJelolo.valtoztatas(babu.getX(), babu.getY());
+					Main.lepoBabuJelolo1.valtoztatas(babu.getX(), babu.getY());
 				} else {
 					Main.myLog.setText("Rossz szín!");
 				}
@@ -37,6 +37,7 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 				} else {
 					Main.lepoBabu.setX(x);
 					Main.lepoBabu.setY(y);
+					Main.lepoBabuJelolo2.valtoztatas(x, y);
 					Main.lepoBabu = null;
 					if (Main.leutesX > 7 * 40) {
 						Main.leutesX = 0;
