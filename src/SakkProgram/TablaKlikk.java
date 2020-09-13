@@ -14,8 +14,11 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 	@Override
 	public void handle(MouseEvent e) {
 		
-		Rectangle rect = (Rectangle) e.getSource();
-		Babu[] babuk = new Babu[32];
+		Rectangle rect = (Rectangle) e.getSource();		
+		LepesMethods lepesMethods = new LepesMethods();
+		lepesMethods.lepes(null, rect);
+
+		/*Babu[] babuk = new Babu[32];
 		for (int i = 0; i < babuk.length; i++) {
 			if(i < 8) {
 				babuk[i] = Main.feherTisztArray[i];
@@ -130,7 +133,7 @@ public class TablaKlikk implements EventHandler<MouseEvent> {
 					Main.myLog.setText("Rossz lépés!");
 				}
 			}
-		}
+		}*/
 	}
 
 }

@@ -17,7 +17,9 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 	public void handle(MouseEvent e) {
 
 		Babu babu = (Babu) e.getSource();
-		double x = babu.getX();
+		LepesMethods lepesMethods = new LepesMethods();
+		lepesMethods.lepes(babu, null);
+		/*double x = babu.getX();
 		double y = babu.getY();
 		//if (Main.lepoBabu == null || Main.lepoBabu.szin == Main.lepoSzin) {
 			if (babu.leutve) {
@@ -56,7 +58,7 @@ public class BabuKlikk implements EventHandler<MouseEvent> {
 				}
 			} else {
 				Main.myLog.setText("Rossz lépés!");
-			}
+			} */
 			/*
 			 * if(e.getButton() == MouseButton.PRIMARY) { babu.setX(x+40); }
 			 * 
