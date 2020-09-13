@@ -144,6 +144,10 @@ public class LepesMethods {
 					return false;
 				}
 			} else {
+				if(Main.lepoBabu == null) {
+					System.out.println("Semmi");
+					return false;
+				}
 				if (Main.lepoBabu.lepes(Main.lepoBabu.getX(), Main.lepoBabu.getY(), rect.getX(), rect.getY(), false)) {
 					System.out.println("lépés");
 					Main.myLog.setText("");
