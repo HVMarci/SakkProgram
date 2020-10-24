@@ -7,11 +7,23 @@ public class Gyalog extends Babu {
 	}
 
 	public boolean lepes(double babuX, double babuY, double rectX, double rectY, boolean utes) {
+		double negyven = 20;
+		double feherKettoNegyven;
+		double sotetKettoNegyven;
+		if(Main.fentVanASotet) {
+			negyven = 40;
+			feherKettoNegyven = 240;
+			sotetKettoNegyven = 40;
+		} else {
+			negyven = -40;
+			feherKettoNegyven = 40;
+			sotetKettoNegyven = 240;
+		}
 		if (!utes) {
 			if (Main.enPassantX != null) {
 				if (this.szin) {
-					if (((babuX + 40 == rectX) || (babuX - 40 == rectX)) && (babuY - 40 == rectY)
-							&& (Main.enPassantX == rectX && Main.enPassantY - 40 == rectY)) {
+					if (((babuX + 40 == rectX) || (babuX - 40 == rectX)) && (babuY - negyven == rectY)
+							&& (Main.enPassantX == rectX && Main.enPassantY - negyven == rectY)) {
 						Main.enPassantX = null;
 						Main.enPassantY = null;
 						Main.enPassantBabu.setX(Main.leutesX);
@@ -25,8 +37,8 @@ public class Gyalog extends Babu {
 						return true;
 					}
 				} else {
-					if (((babuX + 40 == rectX) || (babuX - 40 == rectX)) && (babuY + 40 == rectY)
-							&& (Main.enPassantX == rectX && Main.enPassantY + 40 == rectY)) {
+					if (((babuX + 40 == rectX) || (babuX - 40 == rectX)) && (babuY + negyven == rectY)
+							&& (Main.enPassantX == rectX && Main.enPassantY + negyven == rectY)) {
 						Main.enPassantX = null;
 						Main.enPassantY = null;
 						Main.enPassantBabu.setX(Main.leutesX);
@@ -42,20 +54,18 @@ public class Gyalog extends Babu {
 				}
 			}
 			if (this.szin) {
-				if (babuY == 240) {
-					if (babuX == rectX && rectY < babuY && rectY + (3 * 40) > babuY) {
-						// System.out.println(true);
+				if (babuY == feherKettoNegyven) {
+					System.out.println(rectY - (2 * negyven) +""+babuY);
+					if ((babuX == rectX && rectY + (2 * negyven) == babuY) || (babuX == rectX && rectY + (1 * negyven) == babuY)) {
 						Main.enPassantX = rectX;
 						Main.enPassantY = rectY;
 						Main.enPassantBabu = this;
 						return true;
 					} else {
-						// System.out.println(babuX == rectX);
-						// System.out.println(rectY < babuY);
 						return false;
 					}
 				} else {
-					if (babuX == rectX && rectY < babuY && rectY + (2 * 40) > babuY) {
+					if (babuX == rectX && rectY + (1 * negyven) == babuY) {
 						Main.enPassantX = null;
 						Main.enPassantY = null;
 						return true;
@@ -64,8 +74,9 @@ public class Gyalog extends Babu {
 					}
 				}
 			} else {
-				if (babuY == 40) {
-					if (babuX == rectX && rectY > babuY && rectY - (3 * 40) < babuY) {
+				if (babuY == sotetKettoNegyven) {
+					System.out.println(rectY - (2 * negyven) +""+babuY);
+					if ((babuX == rectX && rectY - (1 * negyven) == babuY) || (babuX == rectX && rectY - (2 * negyven) == babuY)) {
 						Main.enPassantX = rectX;
 						Main.enPassantY = rectY;
 						Main.enPassantBabu = this;
@@ -74,7 +85,7 @@ public class Gyalog extends Babu {
 						return false;
 					}
 				} else {
-					if (babuX == rectX && rectY > babuY && rectY - (2 * 40) < babuY) {
+					if (babuX == rectX && rectY - (1 * negyven) == babuY) {
 						Main.enPassantX = null;
 						Main.enPassantY = null;
 						return true;
@@ -85,7 +96,7 @@ public class Gyalog extends Babu {
 			}
 		} else {
 			if (this.szin) {
-				if (((babuX + 40 == rectX) || (babuX - 40 == rectX)) && (babuY - 40 == rectY)) {
+				if (((babuX + 40 == rectX) || (babuX - 40 == rectX)) && (babuY - negyven == rectY)) {
 					Main.enPassantX = null;
 					Main.enPassantY = null;
 					return true;
@@ -93,7 +104,7 @@ public class Gyalog extends Babu {
 					return false;
 				}
 			} else {
-				if (((babuX + 40 == rectX) || (babuX - 40 == rectX)) && (babuY + 40 == rectY)) {
+				if (((babuX + 40 == rectX) || (babuX - 40 == rectX)) && (babuY + negyven == rectY)) {
 					Main.enPassantX = null;
 					Main.enPassantY = null;
 					return true;

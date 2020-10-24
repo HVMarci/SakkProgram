@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
@@ -49,6 +50,8 @@ public class Main extends Application {
 	static Babu enPassantBabu;
 	static boolean lepoSzin = true;
 	static MutatoBabu mutatoBabu;
+	static Button tablaFordButton = new Button();
+	static boolean fentVanASotet = true;
 	
 	@Override
 	public void start(Stage stage) throws FileNotFoundException {
@@ -90,6 +93,11 @@ public class Main extends Application {
 		mutatoBabu.setY(2*40);
 		mutatoBabu.setFitWidth(40);
 		mutatoBabu.setFitHeight(40);
+		
+		tablaFordButton.setText("Tábla megfordítása");
+		tablaFordButton.setLayoutX(340);
+		tablaFordButton.setLayoutY(20);
+		tablaFordButton.setOnMouseClicked(new TablaForditas());
 		
 		pieces = ChessPieceDeclarations.getChessPieces();
 		Babu[] feherTisztek = (Babu[]) pieces.get("feherTisztek");
@@ -162,8 +170,9 @@ public class Main extends Application {
 		root.getChildren().addAll(feketeGyalogArray);
 		root.getChildren().add(myLog);
 		root.getChildren().add(mutatoBabu);
+		root.getChildren().add(tablaFordButton);
 		
-		Scene scene = new Scene(root, 400, 400);
+		Scene scene = new Scene(root, 480, 440);
 
 		//scene.setFill(Color.LAVENDER);
 

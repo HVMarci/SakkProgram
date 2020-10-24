@@ -75,6 +75,10 @@ public class LepesMethods {
 				}
 				return true;
 
+			} else {
+				Main.myLog.setText("Rossz lépés!");
+				System.out.println("Rossz lépés!");
+				return false;
 			}
 		}
 		
@@ -161,6 +165,10 @@ public class LepesMethods {
 						e1.printStackTrace();
 					}
 					return true;
+				} else {
+					Main.myLog.setText("Rossz lépés!");
+					System.out.println("Rossz lépés!");
+					return false;
 				}
 			}
 		}
